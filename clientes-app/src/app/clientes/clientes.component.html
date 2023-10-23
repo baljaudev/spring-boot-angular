@@ -1,0 +1,25 @@
+<button type="button" [routerLink]="['/clientes/form']">Crear Cliente</button>
+<div *ngIf="clientesLista!= null && clientesLista!= undefined && clientesLista.length>0">
+    <h1>hay registros en la BD</h1>
+</div>
+
+<table *ngIf="clientesLista!= null && clientesLista!= undefined && clientesLista.length>0">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Fecha</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+    </tr>
+    <tr *ngFor="let cliente of clientesLista">
+        <td>{{cliente.id}}</td>
+        <td>{{cliente.nombre}}</td>
+        <td>{{cliente.apellido}}</td>
+        <td>{{cliente.email}}</td>
+        <td>{{cliente.createAt  | date:'dd-MM-yyyy'}}</td>
+        <td><button type="button" name="editar" [routerLink]="['/clientes/form', cliente.id]">Editar</button></td>
+        <td><button type="button" name="eliminar" (click)="delete(cliente)">Eliminar</button></td>
+    </tr>
+</table>

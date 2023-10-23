@@ -1,0 +1,6 @@
+<button (click)="setHabilitar()">{{habilitar == true? 'Ocultar': 'Mostrar'}}</button>
+<div>
+    <ul *ngIf="habilitar">
+        <li *ngFor="let lenguaje of listaCurso">{{ lenguaje }}</li>
+    </ul>
+</div>
